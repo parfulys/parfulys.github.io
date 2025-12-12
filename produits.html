@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Produits — Lumière d’Ambre</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <!-- Logo et texte -->
+      <div class="logo-wrap">
+        <img src="photo/logo parfulys.png" alt="Logo" class="logo">
+        <div class="brand">
+          <span class="brand-name">Parfulys</span>
+          <span class="brand-tagline">Allumez vos émotions</span>
+        </div>
+      </div>
+  
+    <!-- Hamburger pour mobile -->
+    <div class="hamburger" onclick="toggleMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+  
+      <!-- Navigation -->
+      <nav class="nav-links">
+        <ul>
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="produits.html">Produits</a></li>
+          <li><a href="panier.html">Panier (<span id="cartBadge">0</span>)</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  
+  
+
+  <main class="container">
+    <h2 style="color:#4b3338">Produits standards</h2>
+    <p style="color:#7a6a6f">Nos bougies prêtes à l'achat — choisis la quantité et ajoute au panier.</p>
+    <div id="productsRoot" class="grid"></div>
+    <h2 style="color:#4b3338; margin-top:40px;">Packs spéciaux</h2>
+<p style="color:#7a6a6f">Des packs économiques — choisis la quantité et ajoute au panier.</p>
+
+<div id="packsRoot" class="grid"></div>
+
+  </main>
+
+
+  
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div><strong>Parfulys</strong><div class="contact-small">Fabriqué avec soin</div></div>
+      <div class="socials"><a href="https://www.instagram.com/parfulys/" target="_blank">Instagram</a><a href="https://www.tiktok.com/@parfulys" target="_blank">TikTok</a></div>
+      <div class="contact-small">© <span id="year2"></span></div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+
+  <script>
+    function toggleMenu() {
+      const nav = document.querySelector('.nav-links');
+      nav.classList.toggle('show');
+    }
+    </script>
+
+<script>
+  const header = document.querySelector('header');
+  window.addEventListener('scroll', () => {
+    if(window.scrollY > 50){
+      header.classList.add('shrink');
+    } else {
+      header.classList.remove('shrink');
+    }
+  });
+</script>
+
+<script>
+  document.getElementById('year2').textContent = new Date().getFullYear();
+
+  // Produits classiques
+  renderProducts('#productsRoot');
+
+  // 👉 Affichage des packs
+  renderPacks('#packsRoot');
+
+  updateCartSummary();
+</script>
+
+
+
+  <script>
+    document.getElementById('year2').textContent = new Date().getFullYear();
+    renderProducts('#productsRoot');
+    updateCartSummary();
+  </script>
+</body>
+</html>
